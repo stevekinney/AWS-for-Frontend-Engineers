@@ -72,7 +72,6 @@ Again, we have that problem where there is nothing in our database. So, let's st
 ```gql
 mutation CreateGrudge {
   createGrudge(input: {
-    id: "123",
     person: "Tanner",
     deed: "Making me use my old MacBook",
     avenged: false
@@ -130,7 +129,7 @@ query GetAllOfTheGrudges {
     items {
       person
     }
-	nextToken
+    nextToken
   }
 }
 ```
@@ -143,11 +142,11 @@ Let's give it an argument.
 
 ```gql
 query GetAllOfTheGrudges {
-  listGrudges(first: 2) {
+  listGrudges(limit: 2) {
     items {
       person
     }
-	nextToken
+    nextToken
   }
 }
 ```
@@ -156,11 +155,11 @@ Cool, we got the first two. And if we use that token? We'll pick up where we lef
 
 ```gql
 query GetAllOfTheGrudges {
-  listGrudges(first: 2, after: "eyJ2ZXJzaW9uIjoxLCJ0b2tlbiI6IkFRSUNBSGg5OUIvN3BjWU41eE96NDZJMW5GeGM4WUNGeG1acmFOMUpqajZLWkFDQ25BSEhIdVpyZlJGVlVQT3FxMHB2UXRPd0FBQUJ2akNDQWJvR0NTcUdTSWIzRFFFSEJxQ0NBYXN3Z2dHbkFnRUFNSUlCb0FZSktvWklodmNOQVFjQk1CNEdDV0NHU0FGbEF3UUJMakFSQkF3NnJRTjJIc1V5RXgybWVPQUNBUkNBZ2dGeHRkbmxrOTdrTnVEUzJNcldoekU1alpaMnY5Vy9xWEEydzkrbUw3QjRkU0ZjWUFVeWZ1aVJZTHc5TFNqbkZXa3BhS3N1US9sZTh6ZUs1RTEwdzRKQmtJMGNwLzRvNWFKbVZxUTlvRlVHRjJXRTg2LzkzTVFVVEJLbFBOdEZ3SWN2MUlaUk00Nk1kclBrNDI0WmR6eVg3Qjh3a2JBRUlwdTdXUTl2TDAxa1N5UDZkLzBDSTk2SWh5MUNoZ0JtWjhOenZvZWtJTjdFQ2c0bGRPZ1QrR0xWdzFwSWl1Vmw4MGQ3cFpHa1RjVEdaNnZNRENLbXFyaURwWVNIeHA3c0lnVklKNUVyS2s3bWx2ZENSVXBqOStoRWQweVNLMVowTVU1OERtK2E3L1p3SWRuSElkcVZWZGlmLzBpQ0dtdWNWc1hTRFE5SGQ3ZDBRbHFrT3BBbnNoLzlnSHMxSW1oU1d5S0lqamM1Y0Y4TEIrY2ppOHVPVFZ1U3ZJck83MHMzeEZtUHRhdFZYM2x1d2x2eGhnL3hhYXg5bTdUNGVvUCt2c2toMlFHc3NxQXd5RnBEOStiQkZDN2ZFVVdIRWdlcnE0TVlQWDVxUUFhaWZUT0NwTFViQzVJVk9iekNzdTJtWXlRRUxTMEZ1cUZwdUl0bCJ9") {
+  listGrudges(limit: 2, nextToken: "eyJ2ZXJzaW9uIjoxLCJ0b2tlbiI6IkFRSUNBSGg5OUIvN3BjWU41eE96NDZJMW5GeGM4WUNGeG1acmFOMUpqajZLWkFDQ25BSEhIdVpyZlJGVlVQT3FxMHB2UXRPd0FBQUJ2akNDQWJvR0NTcUdTSWIzRFFFSEJxQ0NBYXN3Z2dHbkFnRUFNSUlCb0FZSktvWklodmNOQVFjQk1CNEdDV0NHU0FGbEF3UUJMakFSQkF3NnJRTjJIc1V5RXgybWVPQUNBUkNBZ2dGeHRkbmxrOTdrTnVEUzJNcldoekU1alpaMnY5Vy9xWEEydzkrbUw3QjRkU0ZjWUFVeWZ1aVJZTHc5TFNqbkZXa3BhS3N1US9sZTh6ZUs1RTEwdzRKQmtJMGNwLzRvNWFKbVZxUTlvRlVHRjJXRTg2LzkzTVFVVEJLbFBOdEZ3SWN2MUlaUk00Nk1kclBrNDI0WmR6eVg3Qjh3a2JBRUlwdTdXUTl2TDAxa1N5UDZkLzBDSTk2SWh5MUNoZ0JtWjhOenZvZWtJTjdFQ2c0bGRPZ1QrR0xWdzFwSWl1Vmw4MGQ3cFpHa1RjVEdaNnZNRENLbXFyaURwWVNIeHA3c0lnVklKNUVyS2s3bWx2ZENSVXBqOStoRWQweVNLMVowTVU1OERtK2E3L1p3SWRuSElkcVZWZGlmLzBpQ0dtdWNWc1hTRFE5SGQ3ZDBRbHFrT3BBbnNoLzlnSHMxSW1oU1d5S0lqamM1Y0Y4TEIrY2ppOHVPVFZ1U3ZJck83MHMzeEZtUHRhdFZYM2x1d2x2eGhnL3hhYXg5bTdUNGVvUCt2c2toMlFHc3NxQXd5RnBEOStiQkZDN2ZFVVdIRWdlcnE0TVlQWDVxUUFhaWZUT0NwTFViQzVJVk9iekNzdTJtWXlRRUxTMEZ1cUZwdUl0bCJ9") {
     items {
       person
     }
-	nextToken
+    nextToken
   }
 }
 ```
@@ -275,13 +274,11 @@ Let's use one of our previous mutations and make it a bit more flexible.
 ```js
 export const CreateGrudge = `
   mutation CreateGrudge(
-    $id: ID!
     $person: String!
     $deed: String!
     $avenged: Boolean!
   ) {
     createGrudge(input: {
-      id: $id,
       person: $person,
       deed: $deed,
       avenged: $avenged
@@ -490,25 +487,6 @@ Let's get an automatically generared ID.
 Here is the default for `Mutation.createGrudge`.
 
 ```json
-{
-  "version": "2017-02-28",
-  "operation": "PutItem",
-  "key": {
-    "id": { "S" : "${util.autoId()}" },
-  },
-  "attributeValues": $util.dynamodb.toMapValuesJson($ctx.args.input),
-  "condition": {
-    "expression": "attribute_not_exists(#id)",
-    "expressionNames": {
-      "#id": "id",
-    },
-  },
-}
-```
-
-We can change it to…
-
-```js
 {
   "version": "2017-02-28",
   "operation": "PutItem",
